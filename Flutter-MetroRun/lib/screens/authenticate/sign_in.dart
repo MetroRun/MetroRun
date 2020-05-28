@@ -112,10 +112,11 @@ class _SignInState extends State<SignIn> {
                         ),
                         color: Colors.orange,
                         splashColor: Colors.yellowAccent,
-                        child: Text('Create an Account',
+                        child: Text('SIGN UP',
                             style: TextStyle(
-                              fontSize: 20.0,
                               color: Colors.blue[900],
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.w600,
                             )),
                         onPressed: () {
                           widget.toggleView();
@@ -135,9 +136,10 @@ class _SignInState extends State<SignIn> {
                         ),
                         color: Colors.orange,
                         splashColor: Colors.yellowAccent,
-                        child: Text('Login',
+                        child: Text('LOGIN',
                             style: TextStyle(
-                              fontSize: 20.0,
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.w600,
                               color: Colors.blue[900],
                             )),
                         onPressed: () async {

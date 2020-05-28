@@ -141,18 +141,41 @@ class _CashState extends State<Cash> {
                                   fontWeight: FontWeight.w600,
                                 )
                             ),
-                            SizedBox(height: 50.0),
                             onPressed: () {
-                              
-                              display();
-
+                      showAlertDialog(context);
                             },
                           ),
                         ),
                       ),
 
-                
+                SizedBox(height: 50.0),
 
+//                Padding(
+//                  padding: EdgeInsets.symmetric(horizontal: 90.0),
+//                  child: ButtonTheme(
+//                    minWidth: 150.0,
+//                    height: 65.0,
+//                    child: RaisedButton(
+//                      shape: new RoundedRectangleBorder(
+//                        borderRadius: new BorderRadius.circular(50.0),
+//                      ),
+//                      elevation: 5.0,
+//                      splashColor: Colors.yellowAccent,
+//                      color: Colors.orange,
+//                      textColor: Colors.blue[900],
+//                      child: Text(
+//                          'Current Balance',
+//                          style: TextStyle(
+//                            fontSize: 25.0,
+//                            fontWeight: FontWeight.w600,
+//                          )
+//                      ),
+//                      onPressed: () {
+//
+//                      },
+//                    ),
+//                  ),
+//                ),
 
 
               ],
@@ -161,4 +184,36 @@ class _CashState extends State<Cash> {
       ),
     );
   }
+
+  showAlertDialog (BuildContext context) {
+
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Home())
+        );
+      },
+    );
+
+    // Create AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Updated !"),
+      content: Text("${_currentItemSelected} has been added to your wallet"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
 }

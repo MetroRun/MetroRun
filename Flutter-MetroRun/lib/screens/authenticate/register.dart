@@ -205,9 +205,10 @@ class _RegisterState extends State<Register> {
                                 ),
                                 splashColor: Colors.yellowAccent,
                                 color: Colors.orange,
-                                child: Text('Register',
+                                child: Text('REGISTER',
                                     style: TextStyle(
-                                      fontSize: 20.0,
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.w600,
                                       color: Colors.blue[900],
                                     )),
                                 onPressed: () async {

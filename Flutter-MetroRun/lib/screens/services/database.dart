@@ -9,16 +9,15 @@ class DatabaseService {
       Firestore.instance.collection('UserDetails');
 
   Future updateUserData(String name, String username, String phoneNumber,
-      String email, String password, double cash, double points) async {
-    print("update user data m hoon");
+      String email, String password, double cash) async {
+    print("update user data");
     return await deetsColl.document(uid).setData({
       'name': name,
       'username': username,
       'phoneNumber': phoneNumber,
       'email': email,
       'password': password,
-      'cash': cash,
-      'points': points,
+      'cash': cash
     });
   }
 }

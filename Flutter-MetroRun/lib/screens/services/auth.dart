@@ -60,7 +60,7 @@ class AuthService {
       print("createUserWithEmailAndPassword user is $user");
 
       await DatabaseService(uid: user.uid).updateUserData(
-          name, username, phoneNum, email, confirmPassword, 1000, 0);
+          name, username, phoneNum, email, confirmPassword, 1000);
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
