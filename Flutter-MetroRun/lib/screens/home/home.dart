@@ -1,61 +1,52 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:metrorun/screens/home/add_cash.dart';
+import 'package:metrorun/screens/authenticate/sign_in.dart';
+// import 'package:metrorun/screens/home/add_cash.dart';
 import 'package:metrorun/screens/home/front.dart';
 import 'package:metrorun/screens/services/auth.dart';
-import 'package:photo_view/photo_view.dart';
+// import 'package:photo_view/photo_view.dart';
 
 import 'map.dart';
 
 class Home extends StatelessWidget {
-
   final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
-      backgroundColor: Colors.cyan[100],
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-            'Welcome',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.blue[900],
-            fontSize: 25.0,
-            fontWeight: FontWeight.w700,
-          )
-        ),
-        backgroundColor: Colors.orange,
-        actions: <Widget>[
-
-          FlatButton.icon(
-            icon: Icon(
-                Icons.person,
-              color: Colors.blue[900],
-            ),
-            label: Text(
-                'Logout',
+        backgroundColor: Colors.cyan[100],
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Text('Welcome',
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20.0,
                 color: Colors.blue[900],
-              )
+                fontSize: 20.0,
+                fontWeight: FontWeight.w700,
+              )),
+          backgroundColor: Colors.orange,
+          actions: <Widget>[
+            FlatButton.icon(
+              icon: Icon(
+                Icons.person,
+                color: Colors.blue[900],
+              ),
+              label: Text('Logout',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.blue[900],
+                  )),
+              onPressed: () async {
+                await _auth.signOut();
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => SignIn()));
+              },
             ),
-            onPressed: () async {
-              await _auth.SignOut();
-            },
-          ),
-
-        ],
-      ),
-
-      body: Container(
-        child: Front(),
-
-      ),
-
+          ],
+        ),
+        body: Container(
+          child: Front(),
+        ),
         floatingActionButton: Container(
             padding: EdgeInsets.only(bottom: 15.0),
             height: 80.0,
@@ -68,16 +59,12 @@ class Home extends StatelessWidget {
                   foregroundColor: Colors.blue[900],
                   tooltip: 'View Metro Map',
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MapDisplay())
-                    );
-                  }
-              ),
-            )
-        )
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MapDisplay()));
+                  }),
+            ))
 //    ),
-    );
+        );
   }
 
 //    Future<bool> _onBackPressed(context) {

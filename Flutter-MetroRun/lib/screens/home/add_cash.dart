@@ -1,57 +1,37 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 
-//void main() {
-//
-//  runApp(MaterialApp(
-//    debugShowCheckedModeBanner: false,
-//    title: 'Add cash to your Metro wallet',
-//    home: Cash(),
-//  ));
-//}
-
 class Cash extends StatefulWidget {
   @override
   _CashState createState() => _CashState();
 }
 
 class _CashState extends State<Cash> {
+  List<String> _money = [
+    'Rs.50',
+    'Rs.100',
+    'Rs.200',
+    'Rs.300',
+    'Rs.400',
+    'Rs.500',
+    'Rs.1000'
+  ];
 
-  void _onDropDownItemSelected(String newValueSelected) {
-    setState(() {
-      this._currentItemSelected = newValueSelected;
-    });
-  }
+  // List<double> _prices = [50, 100, 200, 300, 400, 500, 1000];
+  // var price;
 
-
-  String _display() {
-    String result =
-        ' $_currentItemSelected added.';
-    return result;
-  }
-
-  void _reset() {
-    displayAmount = '';
-    _currentItemSelected = _money[0];
-  }
-
-  var _money = ['Rs.50','Rs.100','Rs.200','Rs.300','Rs.400','Rs.500','Rs.1000'];
   final double _minimumPadding = 5.0;
 
-  var _currentItemSelected = '';
+  var _currentItemSelected;
 
-  @override
-  void initState() {
-    super.initState();
-    _currentItemSelected = _money[0];
-  }
+  // DatabaseService data;
+  // _CashState({this.data});
+  // final db = Firestore.instance;
 
   var _formKey = GlobalKey<FormState>();
   var displayAmount = '';
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: Colors.cyan[100],
       appBar: AppBar(
@@ -67,65 +47,76 @@ class _CashState extends State<Cash> {
         backgroundColor: Colors.orange,
         elevation: 5.0,
         title: Text(
-            'Add money to your Metro Wallet',
+          'Add money to your Metro Wallet',
           style: TextStyle(
-            fontSize: 25.0,
+            fontSize: 20.0,
             fontWeight: FontWeight.w700,
             color: Colors.blue[900],
           ),
         ),
       ),
-
-      body : Form(
+      body: Form(
         key: _formKey,
         child: Padding(
-            padding: EdgeInsets.all(_minimumPadding * 2),
-            child: ListView(
-              children: <Widget>[
-
-                SizedBox(height: 150.0),
-
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40.0),
-                  child:DropdownButtonFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.blue[900],
-                          width: 3.0,
+          padding: EdgeInsets.all(_minimumPadding * 2),
+          child: ListView(
+            children: <Widget>[
+              SizedBox(height: 200.0),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 70.0),
+                child: DropdownButton(
+                  hint: _currentItemSelected == null
+                      ? Text(
+                          'Select an option',
+                          style: TextStyle(
+                              color: Colors.blue[900], fontSize: 20.0),
+                        )
+                      : Text(
+                          _currentItemSelected,
+                          style: TextStyle(
+                              color: Colors.blue[900], fontSize: 20.0),
                         ),
-                      ),
-                    ),
-                    items: _money.map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                            value,
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
-                            )
-                        ),
-                      );
-                    }).toList(),
-                    value: _currentItemSelected,
-                    onChanged: (String newValueSelected) {
-                      // Your code to execute, when a menu item is selected from dropdown
-                      _onDropDownItemSelected(newValueSelected);
-                    },
+                  isExpanded: true,
+                  iconSize: 40.0,
+                  iconEnabledColor: Colors.blue[900],
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.0,
                   ),
+                  items: _money.map(
+                    (val) {
+                      return DropdownMenuItem<String>(
+                        value: val,
+                        child: Text(val),
+                      );
+                    },
+                  ).toList(),
+                  onChanged: (val) {
+                    setState(() {
+                      _currentItemSelected = val;
+                      // if (val == _money[0])
+                      //   price = _prices[0];
+                      // else if (val == _money[1])
+                      //   price = _prices[1];
+                      // else if (val == _money[2])
+                      //   price = _prices[2];
+                      // else if (val == _money[3])
+                      //   price = _prices[3];
+                      // else if (val == _money[4])
+                      //   price = _prices[4];
+                      // else if (val == _money[5])
+                      //   price = _prices[5];
+                      // else if (val == _money[6]) price = _prices[6];
+                    });
+                  },
                 ),
-
-
-                SizedBox(height: 100.0),
-
-                Padding(
-                padding: EdgeInsets.symmetric(horizontal: 90.0),
+              ),
+              SizedBox(height: 200.0),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 100.0),
                 child: ButtonTheme(
                   minWidth: 150.0,
-                  height: 65.0,
+                  height: 50.0,
                   child: RaisedButton(
                     shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(50.0),
@@ -134,74 +125,53 @@ class _CashState extends State<Cash> {
                     splashColor: Colors.yellowAccent,
                     color: Colors.orange,
                     textColor: Colors.blue[900],
-                            child: Text(
-                                'Add Money',
-                                style: TextStyle(
-                                  fontSize: 25.0,
-                                  fontWeight: FontWeight.w600,
-                                )
-                            ),
-                            onPressed: () {
-                      showAlertDialog(context);
-                            },
-                          ),
-                        ),
-                      ),
-
-                SizedBox(height: 50.0),
-
-//                Padding(
-//                  padding: EdgeInsets.symmetric(horizontal: 90.0),
-//                  child: ButtonTheme(
-//                    minWidth: 150.0,
-//                    height: 65.0,
-//                    child: RaisedButton(
-//                      shape: new RoundedRectangleBorder(
-//                        borderRadius: new BorderRadius.circular(50.0),
-//                      ),
-//                      elevation: 5.0,
-//                      splashColor: Colors.yellowAccent,
-//                      color: Colors.orange,
-//                      textColor: Colors.blue[900],
-//                      child: Text(
-//                          'Current Balance',
-//                          style: TextStyle(
-//                            fontSize: 25.0,
-//                            fontWeight: FontWeight.w600,
-//                          )
-//                      ),
-//                      onPressed: () {
-//
-//                      },
-//                    ),
-//                  ),
-//                ),
-
-
-              ],
-            ),
+                    child: Text('Add Money',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w600,
+                        )),
+                    onPressed: () async {
+                      if (_currentItemSelected == null ||
+                          _currentItemSelected == 'Select an option')
+                        showAlertDialog(context);
+                      else {
+                        // var updatedamt = data.cash + price;
+                        // print(price);
+                        // print(data.cash);
+                        // print(updatedamt);
+                        // var firebaseUser =
+                        //     await FirebaseAuth.instance.currentUser();
+                        // db.collection("users").document(uid).setData({
+                        //   'Cash': updatedamt,
+                        // });
+                        showConfirmDialog(context);
+                      }
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(height: 50.0),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  showAlertDialog (BuildContext context) {
-
+  showConfirmDialog(BuildContext context) {
     Widget okButton = FlatButton(
       child: Text("OK"),
       onPressed: () {
         Navigator.of(context).pop();
         Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Home())
-        );
+            context, MaterialPageRoute(builder: (context) => Home()));
       },
     );
 
     // Create AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Updated !"),
-      content: Text("${_currentItemSelected} has been added to your wallet"),
+      content: Text("$_currentItemSelected has been credited to your wallet"),
       actions: [
         okButton,
       ],
@@ -215,5 +185,30 @@ class _CashState extends State<Cash> {
       },
     );
   }
+}
 
+showAlertDialog(BuildContext context) {
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Error"),
+    content: Text('Please select an amount that you wish to add !'),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

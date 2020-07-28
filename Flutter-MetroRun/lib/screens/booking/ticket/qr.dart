@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:metrorun/screens/booking/ticket/generate.dart';
 
 //void main() => runApp(MyApp());
 //

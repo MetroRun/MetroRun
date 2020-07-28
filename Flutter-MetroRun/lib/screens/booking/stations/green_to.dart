@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:metrorun/screens/booking/booking.dart';
 
-
+// ignore: must_be_immutable
 class GreenTo extends StatefulWidget {
-
   String from;
   int frm;
   GreenTo({this.from, this.frm});
@@ -11,7 +10,6 @@ class GreenTo extends StatefulWidget {
 }
 
 class _GreenToState extends State<GreenTo> {
-
   String from;
   int frm;
   _GreenToState({this.from, this.frm});
@@ -48,16 +46,15 @@ class _GreenToState extends State<GreenTo> {
     return Scaffold(
         backgroundColor: Colors.lightGreen[200],
         appBar: AppBar(
-          leading : GestureDetector(
+          leading: GestureDetector(
               child: Icon(Icons.arrow_back),
               onTap: () {
                 Navigator.pop(context);
-              }
-          ),
+              }),
           backgroundColor: Colors.green,
           title: Text('Select station',
               style: TextStyle(
-                fontSize: 27.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.w500,
               )),
         ),
@@ -68,15 +65,18 @@ class _GreenToState extends State<GreenTo> {
                   title: Text(
                     greenLine[index],
                     style: TextStyle(
-                      fontSize: 23.0,
+                      fontSize: 18.0,
                     ),
                   ),
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                Booking(from_station: from, to_station: greenLine[index], from_index: frm, to_index: index)));
+                            builder: (context) => Booking(
+                                from_station: from,
+                                to_station: greenLine[index],
+                                from_index: frm,
+                                to_index: index)));
                     print(greenLine[index]);
                     print(index);
                   });

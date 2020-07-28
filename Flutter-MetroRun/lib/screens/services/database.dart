@@ -3,7 +3,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class DatabaseService {
   final String username;
   final String uid;
-  DatabaseService({this.uid, this.username});
+  final String name;
+  final String phoneNumber;
+  final String email;
+  final String password;
+  var cash;
+  DatabaseService(
+      {this.uid,
+      this.username,
+      this.name,
+      this.phoneNumber,
+      this.email,
+      this.password,
+      this.cash});
 
   final CollectionReference deetsColl =
       Firestore.instance.collection('UserDetails');
@@ -12,12 +24,12 @@ class DatabaseService {
       String email, String password, double cash) async {
     print("update user data");
     return await deetsColl.document(uid).setData({
-      'name': name,
-      'username': username,
-      'phoneNumber': phoneNumber,
-      'email': email,
-      'password': password,
-      'cash': cash
+      'Name': name,
+      'Username': username,
+      'PhoneNumber': phoneNumber,
+      'Email': email,
+      'Password': password,
+      'Cash': cash
     });
   }
 }

@@ -42,15 +42,20 @@ class _RegisterState extends State<Register> {
                 },
               ),
               backgroundColor: Colors.blue[900],
-              title: Text('Create an account with Metro Run'),
+              title: Text(
+                'Create an account with Metro Run',
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
             ),
             body: Container(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
                 child: Form(
                     key: _formKey,
                     child: ListView(
                       children: <Widget>[
-                        SizedBox(height: 50.0),
+                        SizedBox(height: 20.0),
                         TextFormField(
                             validator: (val) =>
                                 val.isEmpty ? 'Enter name' : null,
@@ -66,13 +71,13 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                               labelStyle: TextStyle(
-                                fontSize: 20.0,
+                                fontSize: 15.0,
                               ),
                             ),
                             onChanged: (val) {
                               setState(() => name = val);
                             }),
-                        SizedBox(height: 25.0),
+                        SizedBox(height: 20.0),
                         TextFormField(
                             validator: (val) =>
                                 val.isEmpty ? 'Enter username' : null,
@@ -88,13 +93,13 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                               labelStyle: TextStyle(
-                                fontSize: 20.0,
+                                fontSize: 15.0,
                               ),
                             ),
                             onChanged: (val) {
                               setState(() => username = val);
                             }),
-                        SizedBox(height: 25.0),
+                        SizedBox(height: 20.0),
                         TextFormField(
                             validator: (val) =>
                                 val.isEmpty ? 'Enter phone number' : null,
@@ -117,13 +122,13 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                               labelStyle: TextStyle(
-                                fontSize: 20.0,
+                                fontSize: 15.0,
                               ),
                             ),
                             onChanged: (val) {
                               setState(() => phoneNumber = val);
                             }),
-                        SizedBox(height: 25.0),
+                        SizedBox(height: 20.0),
                         TextFormField(
                             validator: (val) =>
                                 val.isEmpty ? 'Enter email' : null,
@@ -139,13 +144,13 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                               labelStyle: TextStyle(
-                                fontSize: 20.0,
+                                fontSize: 15.0,
                               ),
                             ),
                             onChanged: (val) {
                               setState(() => email = val);
                             }),
-                        SizedBox(height: 25.0),
+                        SizedBox(height: 20.0),
                         TextFormField(
                             validator: (val) =>
                                 val.length < 6 ? 'Enter password' : null,
@@ -162,13 +167,13 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                               labelStyle: TextStyle(
-                                fontSize: 20.0,
+                                fontSize: 15.0,
                               ),
                             ),
                             onChanged: (val) {
                               setState(() => initialPassword = val);
                             }),
-                        SizedBox(height: 25.0),
+                        SizedBox(height: 20.0),
                         TextFormField(
                             validator: (val) => val.isEmpty
                                 ? 'Re-enter password'
@@ -188,17 +193,17 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                               labelStyle: TextStyle(
-                                fontSize: 20.0,
+                                fontSize: 15.0,
                               ),
                             ),
                             onChanged: (val) {
                               setState(() => confirmPassword = val);
                             }),
-                        SizedBox(height: 100.0),
+                        SizedBox(height: 80.0),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 50.0),
                           child: ButtonTheme(
-                            height: 60.0,
+                            height: 50.0,
                             child: RaisedButton(
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(50.0),
@@ -207,7 +212,7 @@ class _RegisterState extends State<Register> {
                                 color: Colors.orange,
                                 child: Text('REGISTER',
                                     style: TextStyle(
-                                      fontSize: 25.0,
+                                      fontSize: 20.0,
                                       fontWeight: FontWeight.w600,
                                       color: Colors.blue[900],
                                     )),

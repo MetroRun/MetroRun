@@ -6,10 +6,8 @@ class PurpleFrom extends StatefulWidget {
 }
 
 class _PurpleFromState extends State<PurpleFrom> {
-
   @override
   Widget build(BuildContext context) {
-
     final purpleLine = [
       'Baiyyappanahalli',
       'Swami Vivekananda Road',
@@ -33,16 +31,15 @@ class _PurpleFromState extends State<PurpleFrom> {
     return Scaffold(
         backgroundColor: Colors.purple[100],
         appBar: AppBar(
-          leading : GestureDetector(
+          leading: GestureDetector(
               child: Icon(Icons.arrow_back),
               onTap: () {
                 Navigator.pop(context);
-              }
-          ),
+              }),
           backgroundColor: Colors.purple[600],
           title: Text('Select station',
               style: TextStyle(
-                fontSize: 27.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.w500,
               )),
         ),
@@ -53,15 +50,16 @@ class _PurpleFromState extends State<PurpleFrom> {
                   title: Text(
                     purpleLine[index],
                     style: TextStyle(
-                      fontSize: 23.0,
+                      fontSize: 18.0,
                     ),
                   ),
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                Booking(from_station: purpleLine[index], from_index: index)));
+                            builder: (context) => Booking(
+                                from_station: purpleLine[index],
+                                from_index: index)));
                     print(purpleLine[index]);
                     print(index);
                   });
