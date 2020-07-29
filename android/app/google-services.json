@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "365028358261",
+    "firebase_url": "https://metro-run-3bb36.firebaseio.com",
+    "project_id": "metro-run-3bb36",
+    "storage_bucket": "metro-run-3bb36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365028358261:android:8ae63346505971c76d203c",
+        "android_client_info": {
+          "package_name": "com.diyawadhwani.metrorun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "365028358261-olfu9jttaqsgjsmfi2gd7tfdoks8vib7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBum2I2kMT9hkhvLWZ5klazy2ydLT3vTr4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "365028358261-olfu9jttaqsgjsmfi2gd7tfdoks8vib7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
