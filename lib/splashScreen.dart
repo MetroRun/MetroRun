@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:shimmer/shimmer.dart';
-import 'package:metrorun/screens/home/home.dart';
 import 'package:metrorun/screens/wrapper.dart';
-import 'package:metrorun/screens/authenticate/sign_in.dart';
+
 
 
 
@@ -29,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
 
   Future<bool> _mockCheckForSession() async {
-    await Future.delayed(Duration(milliseconds: 3000), () {});
+    await Future.delayed(Duration(milliseconds: 2000), () {});
 
     return true;
   }
