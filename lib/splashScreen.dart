@@ -5,7 +5,6 @@ import 'package:metrorun/screens/wrapper.dart';
 
 
 
-
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -26,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-
+//setting timer for the splash screen.
   Future<bool> _mockCheckForSession() async {
     await Future.delayed(Duration(milliseconds: 2000), () {});
 
@@ -34,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
 
-
+//Once the timer ends, go to the wrapper class that leads to the Login scren.
   void _navigateToLogin(){
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(
@@ -48,14 +47,17 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
     backgroundColor: Colors.blue,
       body: Container(
-      margin: const EdgeInsets.only(left: 100.0, top: 200.0,right: 100.0),
+
+      //positioning the splash screen image.
+
+      margin: const EdgeInsets.only(left: 100.0, top: 250.0,right: 100.0),
         child: Stack(
           alignment: Alignment.center,
 
           children: <Widget>[
 
             CircleAvatar(
-                child: Image.asset('assets/splashScreen.png',
+                child: Image.asset('assets/splashScreen.png',  //Splash screen image
                  ),
                 radius: 100,
                 backgroundColor: Colors.cyan,
