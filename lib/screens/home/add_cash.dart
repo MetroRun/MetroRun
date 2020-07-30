@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 
+//Widget changes with the users' inputs
 class Cash extends StatefulWidget {
   @override
   _CashState createState() => _CashState();
@@ -17,17 +18,13 @@ class _CashState extends State<Cash> {
     'Rs.1000'
   ];
 
-  // List<double> _prices = [50, 100, 200, 300, 400, 500, 1000];
-  // var price;
 
   final double _minimumPadding = 5.0;
 
-  var _currentItemSelected;
+  var _currentItemSelected; // to store the selected option out of the given list of options
 
-  // DatabaseService data;
-  // _CashState({this.data});
-  // final db = Firestore.instance;
 
+//Key to keep track of items selected
   var _formKey = GlobalKey<FormState>();
   var displayAmount = '';
   @override
@@ -40,7 +37,7 @@ class _CashState extends State<Cash> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Home()),
+              MaterialPageRoute(builder: (context) => Home()), //Go to the home screen by pressing the back arrow icon
             );
           },
         ),
@@ -94,19 +91,7 @@ class _CashState extends State<Cash> {
                   onChanged: (val) {
                     setState(() {
                       _currentItemSelected = val;
-                      // if (val == _money[0])
-                      //   price = _prices[0];
-                      // else if (val == _money[1])
-                      //   price = _prices[1];
-                      // else if (val == _money[2])
-                      //   price = _prices[2];
-                      // else if (val == _money[3])
-                      //   price = _prices[3];
-                      // else if (val == _money[4])
-                      //   price = _prices[4];
-                      // else if (val == _money[5])
-                      //   price = _prices[5];
-                      // else if (val == _money[6]) price = _prices[6];
+
                     });
                   },
                 ),
@@ -135,15 +120,7 @@ class _CashState extends State<Cash> {
                           _currentItemSelected == 'Select an option')
                         showAlertDialog(context);
                       else {
-                        // var updatedamt = data.cash + price;
-                        // print(price);
-                        // print(data.cash);
-                        // print(updatedamt);
-                        // var firebaseUser =
-                        //     await FirebaseAuth.instance.currentUser();
-                        // db.collection("users").document(uid).setData({
-                        //   'Cash': updatedamt,
-                        // });
+
                         showConfirmDialog(context);
                       }
                     },

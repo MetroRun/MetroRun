@@ -9,7 +9,9 @@ class Payment extends StatefulWidget {
   // ignore: non_constant_identifier_names
   int from_index, to_index;
   // ignore: non_constant_identifier_names
+
   Payment({this.from_station, this.to_station, this.from_index, this.to_index});
+  //Constructor
   PaymentState createState() => PaymentState(
       from_station: from_station,
       to_station: to_station,
@@ -18,6 +20,8 @@ class Payment extends StatefulWidget {
 }
 
 class PaymentState extends State<Payment> {
+
+  //Variables to display the time and date when the ticket is bought.
   static DateTime date = DateTime.now();
   static TimeOfDay time = TimeOfDay.now();
   final String currenttime = '${time.hour}:${time.minute}';
@@ -44,6 +48,7 @@ class PaymentState extends State<Payment> {
     amount = Calculate();
   }
 
+  //Metro Routes
   var purpleLine = [
     'Baiyyappanahalli',
     'Swami Vivekananda Road',
@@ -91,6 +96,7 @@ class PaymentState extends State<Payment> {
     'Nagasandra'
   ];
 
+  //Aesthetics of the ticket screen
   @override
   Widget build(BuildContext context) {
     var ticket = Ticket(
@@ -125,26 +131,6 @@ class PaymentState extends State<Payment> {
           ),
         ),
 
-//        actions: <Widget>[
-//
-//          FlatButton.icon(
-//            icon: Icon(
-//              Icons.bookmark_border,
-//              color: Colors.blue[900],
-//            ),
-//            label: Text(
-//              'Save Route',
-//              style: TextStyle(
-//                fontSize: 20.0,
-//                color: Colors.blue[900],
-//              ),
-//            ),
-//            onPressed: () {
-//              Saved(from_station: from_station, to_station: to_station),
-//            },
-//    ),
-//
-//    ],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
@@ -173,32 +159,7 @@ class PaymentState extends State<Payment> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-//                      Padding(
-//                        padding: const EdgeInsets.all(16.0),
-//                        child: Column(
-//                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                          children: <Widget>[
-//                          Icon(
-//                            Icons.remove,
-//                            color: Colors.lightBlue,
-//                          ),
-//                            Center(
-//                        child: Text(
-//                              'Cost : Rs. ${calculate()}',
-//                              textAlign: TextAlign.center,
-//                              style: TextStyle(
-//                                fontSize: 25.0,
-//                                fontWeight: FontWeight.w500,
-//                              ),
-//                            ),
-//                            ),
-//                          Icon(
-//                            Icons.add,
-//                            color: Colors.lightBlue,
-//                          ),
-//                          ],
-//                        ),
-//                      ),
+
 
                       Divider(height: 0.0),
 
@@ -286,19 +247,6 @@ class PaymentState extends State<Payment> {
 
                       SizedBox(height: 50.0),
 
-//                      Container(
-//                        width: double.infinity,
-//                        height: 80.0,
-//                        color: Colors.lightBlue,
-//                        padding: EdgeInsets.symmetric(vertical: 8.0),
-//                        child: Center(
-//                          child: Text(
-//                            'Pay',
-//                            style:
-//                            TextStyle(color: Colors.white, fontSize: 20.0),
-//                          ),
-//                        ),
-//                      ),
 
                       Center(
                         child: Text(
