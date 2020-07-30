@@ -8,6 +8,7 @@ import 'package:metrorun/screens/home/front.dart';
 import 'package:metrorun/screens/services/auth.dart';
 // import 'package:photo_view/photo_view.dart';
 
+import '../wrapper.dart';
 import 'map.dart';
 
 class Home extends StatelessWidget {
@@ -52,7 +53,7 @@ class Home extends StatelessWidget {
                 onPressed: () async {
                   await _auth.signOut();
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => SignIn()));
+                      context, MaterialPageRoute(builder: (context) => Wrapper()));
                 },
               ),
             ],
