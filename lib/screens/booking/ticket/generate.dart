@@ -53,7 +53,7 @@ class GenerateState extends State<Generate> {
       ),
       body: Padding(
         padding: EdgeInsets.all(10.0),
-        child: Column(
+        child: ListView(
 //                crossAxisAlignment: CrossAxisAlignment.center,
 //                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
