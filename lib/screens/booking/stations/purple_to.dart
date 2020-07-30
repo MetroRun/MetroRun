@@ -79,15 +79,5 @@ class _PurpleToState extends State<PurpleTo> {
             }));
   }
 
-//  @override
-//  void onBackPressed() {
-//    Navigator.push(
-//        context,
-//        MaterialPageRoute(
-//            builder: (context) =>
-//                Booking()
-//        )
-//    );
-//  }
 
 }
