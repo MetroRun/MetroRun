@@ -21,6 +21,7 @@ const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 // ignore: non_constant_identifier_names
 String RandomString(int strlen) {
   Random rnd = new Random(new DateTime.now().millisecondsSinceEpoch);
+  //the qr generated everytime is unique
   String result = "";
   for (var i = 0; i < strlen; i++) {
     result += chars[rnd.nextInt(chars.length)];
@@ -41,7 +42,7 @@ class GenerateState extends State<Generate> {
       appBar: AppBar(
         backgroundColor: Colors.orange,
         title: Text(
-          'QR code',
+          'QR code',   
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
@@ -52,7 +53,7 @@ class GenerateState extends State<Generate> {
       ),
       body: Padding(
         padding: EdgeInsets.all(10.0),
-        child: ListView(
+        child: Column(
 //                crossAxisAlignment: CrossAxisAlignment.center,
 //                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
@@ -89,7 +90,7 @@ class GenerateState extends State<Generate> {
                   ),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Home()));
+                        MaterialPageRoute(builder: (context) => Home())); //redirect to home screen after clicking on EXIT.
                   },
                 ),
               ),
