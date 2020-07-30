@@ -42,7 +42,7 @@ class GenerateState extends State<Generate> {
       appBar: AppBar(
         backgroundColor: Colors.orange,
         title: Text(
-          'QR code',
+          'QR code',   
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
@@ -90,7 +90,7 @@ class GenerateState extends State<Generate> {
                   ),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Home()));
+                        MaterialPageRoute(builder: (context) => Home())); //redirect to home screen after clicking on EXIT.
                   },
                 ),
               ),
