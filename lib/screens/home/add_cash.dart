@@ -64,7 +64,7 @@ class _CashState extends State<Cash> {
                 child: DropdownButton(
                   hint: _currentItemSelected == null
                       ? Text(
-                          'Select an option',
+                          'Select the amount',
                           style: TextStyle(
                               color: Colors.blue[900], fontSize: 20.0),
                         )
@@ -117,7 +117,7 @@ class _CashState extends State<Cash> {
                         )),
                     onPressed: () async {
                       if (_currentItemSelected == null ||
-                          _currentItemSelected == 'Select an option')
+                          _currentItemSelected == 'Select the amount')
                         showAlertDialog(context);
                       else {
 
